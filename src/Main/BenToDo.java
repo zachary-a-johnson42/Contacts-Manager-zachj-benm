@@ -1,5 +1,8 @@
 package Main;
 
+import file_io.ContactList;
+import jdk.swing.interop.SwingInterOpUtils;
+
 import javax.swing.*;
 
 public class BenToDo{
@@ -15,6 +18,7 @@ public class BenToDo{
         return showContact;
     }
     private static void runOnStart(){
+        ContactList contactList = new ContactList();
        String menu = JOptionPane.showInputDialog("""
                             1. View contacts
                             2. Add a new contact
@@ -22,9 +26,10 @@ public class BenToDo{
                             4. Delete an existing contact
                             5. Exit""");
         switch (menu) {
-            case "1" -> System.out.println("Viewing All contacts");
+            case "1" -> contactList.getAllContacts();
             case "2" -> getContact();
-            case "3" -> System.out.println("Search");
+            // case "3" -> contactList.getContactByName(USER_INPUT);
+            case "3" -> System.out.println("Search for contact by name");
             case "4" -> System.out.println("Deleting all contacts");
             case "5" -> System.out.println("Exit");
             default -> System.out.println("I don't know have that Function?");
