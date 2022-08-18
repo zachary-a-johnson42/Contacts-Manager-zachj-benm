@@ -1,3 +1,19 @@
+package Main;
+
+import javax.swing.*;
+
+public class BenToDo{
+    public static void main(String[] args) {
+        System.out.println(getContact());
+    }
+    public static String getContact(){
+        String firstName = JOptionPane.showInputDialog("Please enter your First Name");
+        String lastName = JOptionPane.showInputDialog("Please enter your Last Name");
+        String phoneNumber = JOptionPane.showInputDialog("Please enter your Number");
+        String showContact = (firstName + " " + lastName + ": \t\t" + phoneNumber );
+        return showContact;
+    }
+}
 /*
 Contacts Manager CLI1 Application
 
