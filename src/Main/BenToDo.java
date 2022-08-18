@@ -2,10 +2,10 @@ package Main;
 
 import file_io.ContactList;
 import jdk.swing.interop.SwingInterOpUtils;
-
 import javax.swing.*;
 
 public class BenToDo{
+
     public static void main(String[] args) {
         runOnStart();
     }
@@ -13,7 +13,7 @@ public class BenToDo{
         String firstName = JOptionPane.showInputDialog("Please enter your First Name");
         String lastName = JOptionPane.showInputDialog("Please enter your Last Name");
         String phoneNumber = JOptionPane.showInputDialog("Please enter your Number");
-        String showContact = (firstName + " " + lastName + ": \t\t" + phoneNumber );
+        String showContact = (phoneNumber + " | \t\t\t " + firstName + " " + lastName);
         JOptionPane.showMessageDialog(null, showContact);
         return showContact;
     }
@@ -28,35 +28,27 @@ public class BenToDo{
         switch (menu) {
             case "1" -> contactList.getAllContacts();
             case "2" -> getContact();
-            // case "3" -> contactList.getContactByName(USER_INPUT);
-            case "3" -> System.out.println("Search for contact by name");
+            case "3" -> search();
             case "4" -> System.out.println("Deleting all contacts");
-            case "5" -> System.out.println("Exit");
-            default -> System.out.println("I don't know have that Function?");
+            case "5" -> tbreak();
+            default -> recur();
         }
-//        return;
+    }
+    private static void search(){
+        ContactList contactList = new ContactList();
+        String USER_INPUT = JOptionPane.showInputDialog("Search for Contact");
+        contactList.getContactByName(USER_INPUT);
+    }
+    public static void tbreak() {
+        System.out.println("exiting");
+    }
+    public static void recur(){
+        System.out.println("I don't know have that Function?");
+        JOptionPane.showMessageDialog(null, "I don't know have that Function?");
+        runOnStart();
     }
 }
 /*
-    The text file should contain one contact per line.
-When the application starts, the contact list should be read from the file.
-Before the application exits, the contacts file should be rewritten.
-The user interface for your application should include a main menu like the following, where the user will need to enter a number between 1 and 5:
-Copied to clipboard
-1. View contacts.
-2. Add a new contact.
-3. Search a contact by name.
-4. Delete an existing contact.
-5. Exit.
-Enter an option (1, 2, 3, 4 or 5):
-The contacts information should be shown using the following format
-
-Name | Phone number
----------------
-Jack Blank | 1231231234
-Jane Doe | 2342342345
-Sam Space | 3453453456
-Here is what the code for your application might look like:
 
 Load all of the contacts by calling a method that returns a List of Contact objects.
 Call a method that shows the user the main menu and returns their choice of action.

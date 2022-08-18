@@ -1,4 +1,8 @@
-TODO: Set File Path to add, delete, and read all contacts
-
-Ben Marks
-Zach Johnson
+ 9565454688 |           Ben Marks
+ 5555555555 |           Zack Johnson
+ 9565456480 |           Rebecca Martinez
+ 9565432590 |           Aaron Espinosa
+ 3252456564 |           Andres Ramos
+ 2109833321 |           Danial Arinbody
+ 9565413800 |           Dominos ParedesLine
+ 2104206969 |           Joe Mama
