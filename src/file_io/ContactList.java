@@ -77,11 +77,7 @@ public class ContactList {
 
         try {
             List<String> allContacts = Files.readAllLines(contactListFile);
-            for (String contact : allContacts) {
-                if(contact.contains(name)) {
-                    allContacts.remove(contact);
-                }
-            }
+            allContacts.removeIf(contact -> contact.contains(name));
 
             Files.write(contactListFile,
                     allContacts
