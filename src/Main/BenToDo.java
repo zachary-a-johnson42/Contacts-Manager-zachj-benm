@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class BenToDo{
     public static void main(String[] args) {
-        System.out.println(getContact());
+        runOnStart();
     }
     public static String getContact(){
         String firstName = JOptionPane.showInputDialog("Please enter your First Name");
@@ -13,23 +13,26 @@ public class BenToDo{
         String showContact = (firstName + " " + lastName + ": \t\t" + phoneNumber );
         return showContact;
     }
+    private static void runOnStart(){
+       String menu = JOptionPane.showInputDialog("""
+                            1. View contacts
+                            2. Add a new contact
+                            3. Search a contact by name
+                            4. Delete an existing contact
+                            5. Exit""");
+        switch (menu) {
+            case "1" -> System.out.println("Viewing All contacts");
+            case "2" -> getContact();
+            case "3" -> System.out.println("Search");
+            case "4" -> System.out.println("Deleting all contacts");
+            case "5" -> System.out.println("Exit");
+            default -> System.out.println("I don't know have that Function?");
+        }
+//        return;
+    }
 }
 /*
-Contacts Manager CLI1 Application
-
-We will be building a command line application for keeping track of "contacts". A contact will be comprised of a a name and phone number combination.
-
-The application should be able to:
-
-Show all your contacts
-Add a new contact
-Search a contact by her name
-Delete an existing contact
-The application should keep its data in a file named contacts.txt so that the information persists between runs of the application.
-
-How you implement the above functionality is ultimately up to you, but here are a few thoughts to get you started.
-
-The text file should contain one contact per line.
+    The text file should contain one contact per line.
 When the application starts, the contact list should be read from the file.
 Before the application exits, the contacts file should be rewritten.
 The user interface for your application should include a main menu like the following, where the user will need to enter a number between 1 and 5:
