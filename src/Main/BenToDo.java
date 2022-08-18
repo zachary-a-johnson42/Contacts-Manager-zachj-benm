@@ -11,6 +11,7 @@ public class BenToDo{
         String lastName = JOptionPane.showInputDialog("Please enter your Last Name");
         String phoneNumber = JOptionPane.showInputDialog("Please enter your Number");
         String showContact = (firstName + " " + lastName + ": \t\t" + phoneNumber );
+        JOptionPane.showMessageDialog(null, showContact);
         return showContact;
     }
     private static void runOnStart(){
