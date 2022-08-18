@@ -24,7 +24,7 @@ public class Main {
 
         // TODO : SWITCH STATEMENT FOR USER INPUT
 
-            // LOGIC FOR EACH CHOICE
+        // LOGIC FOR EACH CHOICE
 
         // TODO : PROMPT TO CONTINUE OR QUIT
 

@@ -2,6 +2,7 @@ package file_io;
 
 import contacts.Contact;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -9,6 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class ContactList {
 
@@ -35,7 +37,9 @@ public class ContactList {
                 return;
             }
 
+
             String[] contactInfo = new String[]{contact.getFirstName() + " " + contact.getLastName() + " : " + contact.getPhoneNumber()};
+
 
             Files.write(
                     contactListFile,
@@ -54,8 +58,12 @@ public class ContactList {
         try {
             List<String> allContacts = Files.readAllLines(contactListFile);
             for (String contact: allContacts) {
-                if(contact.contains(name)) {
-                    System.out.println(contact);
+                if(contact.toLowerCase().contains(name.toLowerCase())) {
+                    JOptionPane.showMessageDialog(null, contact);
+                    break;
+                }else {
+                    JOptionPane.showMessageDialog(null, "Cant find contact");
+                    break;
                 }
             }
         } catch (IOException e) {
@@ -69,11 +77,7 @@ public class ContactList {
 
         try {
             List<String> allContacts = Files.readAllLines(contactListFile);
-            for (String contact : allContacts) {
-                if(contact.contains(name)) {
-                    allContacts.remove(contact);
-                }
-            }
+            allContacts.removeIf(contact -> contact.contains(name));
 
             Files.write(contactListFile,
                     allContacts
