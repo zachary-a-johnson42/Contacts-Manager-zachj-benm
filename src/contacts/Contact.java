@@ -7,7 +7,7 @@ public class Contact {
     private String phoneNumber;
 
     // CONSTRUCTOR(NAME, NUMBER)
-    Contact(String firstName, String lastName, String phoneNumber) {
+    public Contact(String firstName, String lastName, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;

@@ -35,14 +35,13 @@ public class ContactList {
                 return;
             }
 
-            String[] contactInfo = new String[]{contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber()}
+            String[] contactInfo = new String[]{contact.getFirstName() + " " + contact.getLastName() + " : " + contact.getPhoneNumber()};
 
             Files.write(
                     contactListFile,
                     Arrays.asList(contactInfo),
                     StandardOpenOption.APPEND
             );
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -72,9 +71,14 @@ public class ContactList {
             List<String> allContacts = Files.readAllLines(contactListFile);
             for (String contact : allContacts) {
                 if(contact.contains(name)) {
-                    //remove
+                    allContacts.remove(contact);
                 }
             }
+
+            Files.write(contactListFile,
+                    allContacts
+                    );
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
