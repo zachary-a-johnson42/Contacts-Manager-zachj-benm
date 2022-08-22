@@ -11,12 +11,14 @@ import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class Main {
     //    public static Path contactDirectory = Paths.get("data");
 //    public static Path contactListFile = Paths.get("data", "contacts.txt");
     public static Path file = Paths.get("contacts.txt");
 
     public static void main(String[] args) {
+    
         CreateFile();
         runOnStart();
     }
@@ -89,6 +91,7 @@ public class Main {
             throw new RuntimeException(e);
         }
     }
+    
     private static void search(){
         String USER_INPUT = JOptionPane.showInputDialog("Search for Contact");
         try {
